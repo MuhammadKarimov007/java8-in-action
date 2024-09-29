@@ -28,3 +28,12 @@ a family of algorithms and select an algorithm at run-time.
 condition on an Apple. This is what behavior parameterization means: the ability to 
 tell a method to take multiple behaviors as parameters and use them internally to
 achieve different behavior.
+* Even though we parameterized the behavior of the filterApples method, the code 
+itself is still very verbose.
+  To somehow tackle this, we have anonymous classes.
+  They don't have a name and allow you to declare and instantiate a class at the same time.
+  In other words, they allow you to create and write the implementations at the same time. 
+[FifthExample](FifthExample.java) shows anonymous class in action.
+As you can see, even anonymous classes are verbose.
+* The final step would be to write the previous code by using lambda expressions.
+[SixthExample](SixthExample.java) shows this in action.
