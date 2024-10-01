@@ -1,0 +1,8 @@
+Name,Email,Phone,Age
+David,david@gmail.com,null,31
+Mary,mary@gmail.com,null,21
+James,james@gmail.com,null,20
+Lucy,lucy@gmail.com,null,20
+Adam,adam@gmail.com,null,35
+Margaret,margaret@gmail.com,null,25
+Bob,bob@gmail.com,null,41

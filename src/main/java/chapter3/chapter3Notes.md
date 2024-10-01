@@ -18,4 +18,16 @@
   thing with an anonymous inner class, although it’s clumsier: you provide an implementation
   and instantiate it directly inline. The following code is valid because Runnable is a functional
   interface defining only one abstract method, run. [RunnableExample](RunnableExample.java)
-* 
+* The signature of the abstract method in the functional interface describes the signature of the 
+  lambda expression.
+  We call this abstract method a function descriptor.
+* A lambda expression can be assigned to a variable or passed to a method expecting a functional interface 
+ as argument, provided the lambda expression has the same signature as the abstract method of 
+ the functional interface.
+* Now look at this [class](TrickyExample.java) which contains a tricky example to understand.
+  The return type of the method fetch is Callable<String>.
+  Callable<String> essentially defines a method with the signature () -> String when T is replaced with String.
+  Because the lambda ()-> "Tricky example ;-)" has the signature () -> String, the lambda can be used in this context.
+* Predicate<T> interface defines an abstract method named test that accepts an object of generic type T and returns a boolean.
+* Consumer<T> interface defines an abstract method named accept that takes an object of generic type T and returns no result.
+* Function<T, R> interface defines an abstract method named apply that takes an object of generic type T as input and returns an object of generic type R
