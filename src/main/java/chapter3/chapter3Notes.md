@@ -31,3 +31,9 @@
 * Predicate<T> interface defines an abstract method named test that accepts an object of generic type T and returns a boolean.
 * Consumer<T> interface defines an abstract method named accept that takes an object of generic type T and returns no result.
 * Function<T, R> interface defines an abstract method named apply that takes an object of generic type T as input and returns an object of generic type R
+* When we first mentioned lambda expressions, we said that they let you generate an instance of a functional interface. Nonetheless, a lambda expression itself doesn't contain the information about which functional interface it's implementing. In ordre to have a more formal understanding of lambda expressions, you should know what the actual 
+   type of a lambda is.
+* The type of a lambda is deduced from the context in which the lambda is used. The type expected for the lambda
+   expression inside the context is called the target type.
+* You can see what happens under the hood [here](type-checking-of-lambda.png)
+* 
