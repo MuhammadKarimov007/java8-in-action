@@ -41,4 +41,9 @@
   classified into two categories.
   Stream operations that can be connected are called intermediate operations, and 
    operations that close a stream are called terminal operations.
-* 
+* Intermediate operations return another stream as the return type. This allows the 
+ operations to be connected to form a query.
+  Intermediate operations don't perform any processing until a terminal operation is invoked on the 
+  stream pipeline - they're lazy.
+* Terminal operations produce a result from a stream pipeline. A result is any nonstream 
+ value such as a List, an Integer, or even void.
