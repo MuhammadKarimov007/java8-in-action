@@ -4,6 +4,7 @@ import domain.Dish;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class Chapter5Challenges {
     public static void main(String[] args) {
@@ -39,5 +40,10 @@ public class Chapter5Challenges {
         System.out.println("hello");
         pairsOfNum1AndNum2DivisibleBy3.forEach(
                 arr -> System.out.println(Arrays.toString(arr)));
+        // Challenge 5
+        Optional<Integer> numberOfDishes = menu.stream()
+                .map(d -> 1)
+                .reduce(Integer::sum);
+        numberOfDishes.ifPresent(System.out::println);
     }
 }
