@@ -103,4 +103,36 @@
   Look at this [class](IntStream.java).
 * Java 8 introduces two static methods available on IntStream and 
   LongStream to help generate numeric ranges: range and rangeClosed.
-  For example this [class](NumericRanges.java)
+  For example, this [class](NumericRanges.java).
+* You can create a stream with explicit values by using the static method
+  Stream.of, which can take any number of parameters.
+  For example, look at this [class](StreamsFromValues.java).
+* You can create a stream from an array using the static method Arrays.stream,
+  which takes an array as parameter.
+  For example, you can convert an array of primitive ints into an IntStream;
+   [class](StreamsFromArrays.java).
+* The Streams API provides two static methods to generate a stream from a function:
+  Stream.iterate and Stream.generate.
+  These two operations let you create what we call an infinite stream: a stream that doesn't
+  have a fixed size like when you create a stream from a fixed collection.
+  Streams produced by iterate and generate create values on demand given a function 
+  and can therefore calculate values forever.
+  For example, look at this [class](StreamIterate.java).
+* Similarly to the method iterate, the method generate lets you produce
+ an infinite stream of values computed on demand.
+  But generate doesn't apply successively a function on each new produced value.
+  It takes a lambda of type Supplier<T> to provide new values.
+  For example, look at this [class](StreamGenerate.java)
+* You may be wondering if there's anything else useful you can do using
+ the method generate.
+  The supplier we used was stateless: it wasn't recording any values somewhere
+ that can be used in later computations.
+  But supplier doesn't have to be stateless.
+  You can create a supplier that stores state that it can modify and use
+  when generating the next value of the stream.
+* We will look at an example of how we can create the Fibonacci series
+  using generate so we can compare it with the approach using the iterate method.
+  But it's important to note that a supplier that's stateful isn't safe to use in parallel code.
+* The difference between the anonymous class that we will use and a lambda is that
+  the anonymous class can define state via fields.
+  Look at this [class](StatefulGenerate.java).
