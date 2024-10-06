@@ -74,3 +74,33 @@
  of the operation is unbounded.
   This can be problematic if the data stream is large or infinite.
   We call these operations stateful operations.
+## Numeric streams
+* You saw earlier that you could use the reduce method to calculate the 
+  sum of the elements of a stream ([ReduceStream.java](ReduceStream.java)). 
+  The problem with this code is that there is a hidden boxing cost.
+  Behind the scenes, each Integer needs to be unboxed to a primitive before 
+  performing the summation.
+* The Streams API also supplies primitive stream specializations that support 
+  specialized methods to work with streams of numbers.
+  There are three primitive specialized stream interfaces to tackle this issue: 
+  IntStream, DoubleStream, and LongStream.
+  Each of these interfaces brings new methods to perform common numeric 
+  reductions such as sum to calculate the sum of a numeric stream and max to 
+  find the maximum element.
+* The most common methods you'll use to convert a stream to a specialized
+  version are mapToInt, mapToDouble, and mapToLong.
+  For example, look at this [class](IntStream.java).
+* Once you have a numeric stream, you may be interested in converting
+ it back to a nonspecialized stream.
+  Look at this [class](BackToStream.java).
+* The sum example was convenient because it has a default value 0.
+  But if you want to calculate the maximum element in an IntStream, you
+  need something different because 0 is a wrong result.
+  How can you differentiate that the stream has no element and that 
+  the real maximum is 0? There's a primitive specialized version of 
+  Optional as well for the three primitive stream specializations: 
+  OptionalInt, OptionalDouble, and OptionalLong.
+  Look at this [class](IntStream.java).
+* Java 8 introduces two static methods available on IntStream and 
+  LongStream to help generate numeric ranges: range and rangeClosed.
+  For example this [class](NumericRanges.java)
